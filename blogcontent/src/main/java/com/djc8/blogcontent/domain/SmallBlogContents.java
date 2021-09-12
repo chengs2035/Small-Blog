@@ -15,67 +15,67 @@ public class SmallBlogContents extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
-    /** $column.columnComment */
+    /** id */
     private Integer blogCid;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 标题 */
+    @Excel(name = "标题")
     private String blogTitle;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 访问名 */
+    @Excel(name = "访问名")
     private String blogSlug;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 创建时间 */
+    @Excel(name = "创建时间")
     private Integer blogCreated;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 修改时间 */
+    @Excel(name = "修改时间")
     private Integer blogModified;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 主体内容 */
+    @Excel(name = "主体内容")
     private String blogText;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 排序编号 */
+    @Excel(name = "排序编号")
     private Integer blogOrder;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 模板id */
+    @Excel(name = "模板id")
     private String blogTemplate;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 主体类型 */
+    @Excel(name = "主体类型")
     private String blogType;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 主体状态 */
+    @Excel(name = "主体状态")
     private String blogStatus;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 密码 */
+    @Excel(name = "密码")
     private String blogPassword;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 评论数量 */
+    @Excel(name = "评论数量")
     private Integer blogCommentsnum;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 是否允许评论 */
+    @Excel(name = "是否允许评论")
     private String blogAllowcomment;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 是否允许feed */
+    @Excel(name = "是否允许feed")
     private String blogAllowfeed;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 所属分类 */
+    @Excel(name = "所属分类")
     private Integer blogParent;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 操作用户 */
+    @Excel(name = "操作用户")
     private Long userId;
 
     public void setBlogCid(Integer blogCid)
