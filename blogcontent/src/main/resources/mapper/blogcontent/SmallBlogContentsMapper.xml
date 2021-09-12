@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.djc8.blogcontent.mapper.SmallBlogContentsMapper">
+
+    <resultMap type="SmallBlogContents" id="SmallBlogContentsResult">
+        <result property="blogCid"    column="blog_cid"    />
+        <result property="blogTitle"    column="blog_title"    />
+        <result property="blogSlug"    column="blog_slug"    />
+        <result property="blogCreated"    column="blog_created"    />
+        <result property="blogModified"    column="blog_modified"    />
+        <result property="blogText"    column="blog_text"    />
+        <result property="blogOrder"    column="blog_order"    />
+        <result property="blogTemplate"    column="blog_template"    />
+        <result property="blogType"    column="blog_type"    />
+        <result property="blogStatus"    column="blog_status"    />
+        <result property="blogPassword"    column="blog_password"    />
+        <result property="blogCommentsnum"    column="blog_commentsNum"    />
+        <result property="blogAllowcomment"    column="blog_allowComment"    />
+        <result property="blogAllowfeed"    column="blog_allowFeed"    />
+        <result property="blogParent"    column="blog_parent"    />
+        <result property="userId"    column="user_id"    />
+    </resultMap>
+
+    <sql id="selectSmallBlogContentsVo">
+        select blog_cid, blog_title, blog_slug, blog_created, blog_modified, blog_text, blog_order, blog_template, blog_type, blog_status, blog_password, blog_commentsNum, blog_allowComment, blog_allowFeed, blog_parent, user_id from small_blog_contents
+    </sql>
+
+    <select id="selectSmallBlogContentsList" parameterType="SmallBlogContents" resultMap="SmallBlogContentsResult">
+        <include refid="selectSmallBlogContentsVo"/>
+        <where>
+            <if test="blogTitle != null  and blogTitle != ''"> and blog_title = #{blogTitle}</if>
+            <if test="blogSlug != null  and blogSlug != ''"> and blog_slug = #{blogSlug}</if>
+            <if test="blogCreated != null "> and blog_created = #{blogCreated}</if>
+            <if test="blogModified != null "> and blog_modified = #{blogModified}</if>
+            <if test="blogText != null  and blogText != ''"> and blog_text = #{blogText}</if>
+            <if test="blogOrder != null "> and blog_order = #{blogOrder}</if>
+            <if test="blogTemplate != null  and blogTemplate != ''"> and blog_template = #{blogTemplate}</if>
+            <if test="blogType != null  and blogType != ''"> and blog_type = #{blogType}</if>
+            <if test="blogStatus != null  and blogStatus != ''"> and blog_status = #{blogStatus}</if>
+            <if test="blogPassword != null  and blogPassword != ''"> and blog_password = #{blogPassword}</if>
+            <if test="blogCommentsnum != null "> and blog_commentsNum = #{blogCommentsnum}</if>
+            <if test="blogAllowcomment != null  and blogAllowcomment != ''"> and blog_allowComment = #{blogAllowcomment}</if>
+            <if test="blogAllowfeed != null  and blogAllowfeed != ''"> and blog_allowFeed = #{blogAllowfeed}</if>
+            <if test="blogParent != null "> and blog_parent = #{blogParent}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+        </where>
+    </select>
+
+    <select id="selectSmallBlogContentsByBlogCid" parameterType="Integer" resultMap="SmallBlogContentsResult">
+        <include refid="selectSmallBlogContentsVo"/>
+        where blog_cid = #{blogCid}
+    </select>
+
+    <insert id="insertSmallBlogContents" parameterType="SmallBlogContents" useGeneratedKeys="true" keyProperty="blogCid">
+        insert into small_blog_contents
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="blogTitle != null">blog_title,</if>
+            <if test="blogSlug != null">blog_slug,</if>
+            <if test="blogCreated != null">blog_created,</if>
+            <if test="blogModified != null">blog_modified,</if>
+            <if test="blogText != null">blog_text,</if>
+            <if test="blogOrder != null">blog_order,</if>
+            <if test="blogTemplate != null">blog_template,</if>
+            <if test="blogType != null">blog_type,</if>
+            <if test="blogStatus != null">blog_status,</if>
+            <if test="blogPassword != null">blog_password,</if>
+            <if test="blogCommentsnum != null">blog_commentsNum,</if>
+            <if test="blogAllowcomment != null">blog_allowComment,</if>
+            <if test="blogAllowfeed != null">blog_allowFeed,</if>
+            <if test="blogParent != null">blog_parent,</if>
+            <if test="userId != null">user_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="blogTitle != null">#{blogTitle},</if>
+            <if test="blogSlug != null">#{blogSlug},</if>
+            <if test="blogCreated != null">#{blogCreated},</if>
+            <if test="blogModified != null">#{blogModified},</if>
+            <if test="blogText != null">#{blogText},</if>
+            <if test="blogOrder != null">#{blogOrder},</if>
+            <if test="blogTemplate != null">#{blogTemplate},</if>
+            <if test="blogType != null">#{blogType},</if>
+            <if test="blogStatus != null">#{blogStatus},</if>
+            <if test="blogPassword != null">#{blogPassword},</if>
+            <if test="blogCommentsnum != null">#{blogCommentsnum},</if>
+            <if test="blogAllowcomment != null">#{blogAllowcomment},</if>
+            <if test="blogAllowfeed != null">#{blogAllowfeed},</if>
+            <if test="blogParent != null">#{blogParent},</if>
+            <if test="userId != null">#{userId},</if>
+        </trim>
+    </insert>
+
+    <update id="updateSmallBlogContents" parameterType="SmallBlogContents">
+        update small_blog_contents
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="blogTitle != null">blog_title = #{blogTitle},</if>
+            <if test="blogSlug != null">blog_slug = #{blogSlug},</if>
+            <if test="blogCreated != null">blog_created = #{blogCreated},</if>
+            <if test="blogModified != null">blog_modified = #{blogModified},</if>
+            <if test="blogText != null">blog_text = #{blogText},</if>
+            <if test="blogOrder != null">blog_order = #{blogOrder},</if>
+            <if test="blogTemplate != null">blog_template = #{blogTemplate},</if>
+            <if test="blogType != null">blog_type = #{blogType},</if>
+            <if test="blogStatus != null">blog_status = #{blogStatus},</if>
+            <if test="blogPassword != null">blog_password = #{blogPassword},</if>
+            <if test="blogCommentsnum != null">blog_commentsNum = #{blogCommentsnum},</if>
+            <if test="blogAllowcomment != null">blog_allowComment = #{blogAllowcomment},</if>
+            <if test="blogAllowfeed != null">blog_allowFeed = #{blogAllowfeed},</if>
+            <if test="blogParent != null">blog_parent = #{blogParent},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+        </trim>
+        where blog_cid = #{blogCid}
+    </update>
+
+    <delete id="deleteSmallBlogContentsByBlogCid" parameterType="Integer">
+        delete from small_blog_contents where blog_cid = #{blogCid}
+    </delete>
+
+    <delete id="deleteSmallBlogContentsByBlogCids" parameterType="String">
+        delete from small_blog_contents where blog_cid in
+        <foreach item="blogCid" collection="array" open="(" separator="," close=")">
+            #{blogCid}
+        </foreach>
+    </delete>
+</mapper>
